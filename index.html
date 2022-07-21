@@ -7,8 +7,23 @@
     <title>Welcome - SCADA</title>
 </head>
 <body>
+    <h2 id="blinky">This page is cashed, changes may take long before being visible</h2>
+
     Scada manuals, coming soon.
-   
+   <br>
     <a href="sw1.html">smartwall</a>
+
+
+    <script type="text/javascript">
+        var blink = 
+            document.getElementById('blinky');
+    
+        setInterval(function () {
+    
+            blink.style.backgroundColor = 
+            (blink.style.backgroundColor == 'orange' ? 'white' : 'orange');
+    
+        }, 500); 
+    </script>
 </body>
 </html>
