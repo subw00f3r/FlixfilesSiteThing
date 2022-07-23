@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="ttl">SCADA</title>
+    <link rel="icon" href="/files/images/scadalow.ico">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+ 
+    <nav>
+        <LT class="scadatxtlogo">SCADA</LT>
+        <button class="navbtn" onclick="window.location.href='/'">Home</button>
+        <button class="navbtn" onclick="window.location.href='https://discord.gg/sRTfeXyR9d'">Discord</button>
+        <a href="/login" class="login">Login</a>        
+    </nav>
+
+
+    <br>
+    
+    
+    <button class="backbtn" onclick="window.location.href='/SmartWall'">Go back</button>
+    <div class="centre">
+        <video controls src="/swv1/smartwall1.mp4"></video>
+    </div>
+
+    <footer>
+        <p>
+            <a href="/">Home - </a>
+            <a href="https://discord.gg/sRTfeXyR9d">Discord</a>
+            <copy>| Copyright © FELIX - 2022</copy>
+        </p>
+    </footer>
+
+
+
+    <script type="text/javascript">
+        var blink = 
+            document.getElementById('blinky');
+    
+        setInterval(function () {
+    
+            blink.style.backgroundColor = 
+            (blink.style.backgroundColor == 'orange' ? 'white' : 'orange');
+    
+        }, 500); 
+
+
+        // Logo animation script for the title
+        //var ttl = document.getElementById('ttl');
+        //setInterval(function () {
+            //  ttl.textContent = 
+            //(ttl.textContent == 'SCADA' ? 'WELCOME' : 'SCADA');
+    
+        //}, 1000);
+    </script>
+</body>
+</html>
