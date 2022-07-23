@@ -59,6 +59,7 @@ nav{
     top: 5px;
     margin-left: 20px;
     margin-right: 20px;
+    text-decoration: none;
 }
 .login{
     position: absolute;
