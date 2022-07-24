@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hi!</title>
 </head>
-<body>
-    <h1 id="pphere" class="ppherec">ENABLE JAVASCRIPT pleasexxx</h1>
+<body id="bg">
+    <h1 style="background-color: white; border: 25px; border-style: dashed; border-color: black;" id="pphere" class="ppherec">ENABLE JAVASCRIPT pleasexxx</h1>
 </body>
 <script>
 	var pp = document.getElementById("pphere");
@@ -35,8 +35,17 @@
     // Search parameter in the URL
    // document.write(parser.searchParams + "<br>");
 
+    if (parser.searchParams.get("n") == null) {
+        pp.innerHTML = "Hoi Naamloze gebruiker, je piemel is klein.";
+    } else {
+        pp.innerHTML = "Hoi " + parser.searchParams.get("n") + ", je piemel is klein!";
+    }
+    
+    // put a random cat image as page background
 
-    pp.textContent = "Hoi, "+parser.searchParams.get("n")+" je piemel is klein! 😂";
+    var bg = document.getElementById("bg");
+    bg.style.backgroundImage = "url(https://thecatapi.com/api/images/get?format=src&type=gif&size=large)";
+
     </script>
     
 </html>
