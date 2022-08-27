@@ -90,6 +90,7 @@
           <ul class="nav flex-column">
             <li class="nav-item"><a class="nav-link" href="#aesurge">AE Surge</a></li>
             <li class="nav-item"><a class="nav-link" href="#smartwall">SmartWall</a></li>
+            <li class="nav-item"><a class="nav-link" href="#smartlighting">Smart Lighting</a></li>
             <li class="nav-item"><a class="nav-link" href="#na1">More soon</a></li>
 
           </ul>
@@ -231,6 +232,51 @@
               </div>
               <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#popularTopics">
                 <div class="card-body"> Manual and setup video can be found here <a href="https://scada.flixfiles.tk/smartwall/">https://scada.flixfiles.tk/smartwall/</a> </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </section>
+    
+<hr class="divider">
+
+        <!-- SmartWall
+		============================ -->
+    <section id="smartlighting">
+      <h2>Smart Lighting</h2>
+      <p class="lead">Scada smart lighting Version June 3rd 2022</p>
+      <p>doc last updated 27 AUG 2022 by felix</p>
+      <p><strong>Helpfull resources</strong></p>
+      <ul>
+        <li>manual <a href="/obsolete/smartlighting/">old manual</a></li>
+        <li>No setup videos.</li>
+       
+      </ul>
+      
+      <p><strong>FAQ's</strong></p>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="accordion accordion-alterate arrow-right" id="popularTopics">
+
+            <div class="card">
+              <div class="card-header" id="heading1">
+                <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">motion sensor doesn't work.</a> </h5>
+              </div>
+              <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#popularTopics">
+                <div class="card-body"> <ol>
+                  <li>Make sure sensor and light share same "group" value</li>
+                  <li>Controll group:: By default the sensor is deactivated, a switch can be added to the <code>Control_Group</code> to enable and disable the sensor. </li>
+                  <li>If client wants sensor to be always enabled set <code>Control_Group_On_By_Default</code> to true.</li>
+                  <img width="45%" src="assets/images/Smart Lighting/sensor_1.png"> <img width="45%" src="assets/images/Smart Lighting/sensor_2.png">
+                </ol> 
+              </a> 
+            </div>
               </div>
             </div>
 
