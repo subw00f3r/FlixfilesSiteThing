@@ -80,7 +80,7 @@ nav{
     border-width: 5px;
     background-color: rgb(255, 191, 113);
     position: absolute;
-    top: 90px;
+    top: 200px;
     left: 20px;
     font-size: 20px;
     color: rgb(0, 0, 0);
@@ -93,7 +93,7 @@ nav{
   border-width: 5px;
   background-color: rgb(255, 191, 113);
   position: absolute;
-  top: 140px;
+  top: 250px;
   left: 20px;
   font-size: 20px;
   color: rgb(0, 0, 0);
@@ -106,7 +106,7 @@ nav{
   border-width: 5px;
   background-color: rgb(255, 191, 113);
   position: absolute;
-  top: 190px;
+  top: 300px;
   left: 20px;
   font-size: 20px;
   color: rgb(0, 0, 0);
