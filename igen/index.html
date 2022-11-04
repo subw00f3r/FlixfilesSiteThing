@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image generator V1</title>
+</head>
+<body> 
+    <link rel="stylesheet" href="index.css">
+    <div style="background-color: orange";>
+    <h1>not so great image generator version 0.1</h1>
+    <h5>don't use on internet explorer, i dont feel like converting the fonts so it won't work.</h5>
+
+    <h3>Image reloads only when "Main text" is changed.</h3>
+    <h3>⚠ I need the height and width of the displays to finish the code..... ⚠</h3>
+    </div>
+    <hr>
+    <br>
+    <canvas id='textCanvas' height=140px></canvas>
+    <img id='image'>Image will render here. Right click to save.</img>
+    <hr>
+    <br>
+
+    <uinput>
+        <p>Main Text max 10 char</p>
+        <textarea id='text'></textarea>
+    </uinput>
+
+    <uinput>
+        <p>Bottom Text💅 max 22 char</p>
+        <textarea id='bottomtext'></textarea>
+    </uinput>
+    <uinput>
+        <p>route number max 3 Char</p>
+        <textarea id='routenummer'></textarea>
+    </uinput>
+
+    <script>
+        var tCtx = document.getElementById('textCanvas').getContext('2d'), //Hidden canvas
+        imageElem = document.getElementById('image'); //Image element
+        var bottomtext = document.getElementById('bottomtext');
+        var routenummer = document.getElementById('routenummer');
+
+  
+        // Text input element
+        document.getElementById('text').addEventListener('keyup', function() {
+         /*
+            ---------------------------------------------------------
+        i need the with and height of the displays to finish this code :-) 
+            ---------------------------------------------------------
+        */
+            var breedheid = ((tCtx.measureText(this.value).width)+(tCtx.measureText(routenummer.value).width));
+            tCtx.canvas.width = breedheid;
+
+        
+
+            var opzij = (tCtx.measureText(this.value).width*10);
+            
+            tCtx.fillStyle = "#000000";
+            tCtx.fillRect(0, 0, tCtx.canvas.width, tCtx.canvas.height);
+
+            tCtx.fillStyle = "#ff9933";
+
+            tCtx.font = "80px dotnorm";             //max width 430  height 100
+            tCtx.fillText(this.value, 10, 60);
+           
+            tCtx.font = "40px dotnorm";             //max width 430  height 40
+            tCtx.fillText(bottomtext.value, 10, 120);
+
+            tCtx.font = "140px dotnorm";            //max width 160    height 160
+            tCtx.fillText(routenummer.value, opzij, 110);
+
+
+
+
+
+            imageElem.src = tCtx.canvas.toDataURL();
+            console.log(imageElem.src);
+        }, false);
+    </script>
+</body>
+</html>
