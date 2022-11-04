@@ -9,7 +9,7 @@
 <body> 
     <link rel="stylesheet" href="index.css">
     <div style="background-color: orange";>
-    <h1>not so great image generator version 0.1</h1>
+    <h1>not so great image generator version 0.1.2</h1>
     <h5>don't use on internet explorer, i dont feel like converting the fonts so it won't work.</h5>
 
     <h3>Image reloads only when "Main text" is changed.</h3>
@@ -24,19 +24,21 @@
     <br>
 
     <uinput>
-        <p>Main Text max 10 char</p>
+        <p>Main Text</p>
         <textarea id='text'></textarea>
     </uinput>
 
     <uinput>
-        <p>Bottom Text💅 max 22 char</p>
+        <p>Bottom Text🍑</p>
         <textarea id='bottomtext'></textarea>
     </uinput>
     <uinput>
-        <p>route number max 3 Char</p>
+        <p>route number</p>
         <textarea id='routenummer'></textarea>
     </uinput>
-
+    <p>
+        Planned updates: color picker for text and background; fixed size + text scaling and idk maybe something else
+    </p>
     <script>
         var tCtx = document.getElementById('textCanvas').getContext('2d'), //Hidden canvas
         imageElem = document.getElementById('image'); //Image element
