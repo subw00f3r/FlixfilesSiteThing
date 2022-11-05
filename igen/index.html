@@ -12,7 +12,6 @@
     <h1>not so great image generator version 0.1.2</h1>
     <h5>don't use on internet explorer, i dont feel like converting the fonts so it won't work.</h5>
 
-    <h3>Image reloads only when "Main text" is changed.</h3>
     <h3>⚠ I need the height and width of the displays to finish the code.....      ⚠</h3>
     <h3>⚠ Untill I do that the text might look peepee, if so just add a few spaces ⚠</h3>
     </div>
@@ -20,57 +19,80 @@
     <br>
     <canvas id='textCanvas' height=140px></canvas>
     <img id='image'>Image will render here. Right click to save.</img>
+
     <hr>
+
     <br>
 
-    <uinput>
-        <p>Main Text</p>
-        <textarea id='text'></textarea>
-    </uinput>
+    <uinputMain id="userinput">
+        <uinput>
+            <p>Main Text</p>
+            <input type="color" id="MTkleur" value="#FF9933">
+            <input type="text" id="text">
+        </uinput>
 
-    <uinput>
-        <p>Bottom Text🍑</p>
-        <textarea id='bottomtext'></textarea>
-    </uinput>
-    <uinput>
-        <p>route number</p>
-        <textarea id='routenummer'></textarea>
-    </uinput>
+        <uinput>
+            <p>Bottom Text🍑</p>
+            <input type="color" id="BTkleur" value="#FF9933">
+            <input type="text" id="bottomtext">
+        </uinput>
+
+        <uinput>
+            <p>route number</p>
+            <input type="color" id="RNkleur" value="#FF9933">
+            <input type="text" id="routenummer">
+        </uinput>
+    </uinputMain>
+
     <p>
-        Planned updates: color picker for text and background; fixed size + text scaling and idk maybe something else
+        Planned updates: color picker for background; fixed size + text scaling and idk maybe something else
+    </p>
+    <p>
+        Fix log:
+        <p>Color selector is now availible</p>
+        <p>image renderer should now work a bit better</p>
+        <p>i think thats all i did for now</p>
     </p>
     <script>
         var tCtx = document.getElementById('textCanvas').getContext('2d'), //Hidden canvas
         imageElem = document.getElementById('image'); //Image element
+        var maintext = document.getElementById('text');
         var bottomtext = document.getElementById('bottomtext');
         var routenummer = document.getElementById('routenummer');
+        var mainkleur = document.getElementById('MTkleur');
+        var bottomkleur = document.getElementById('BTkleur')
+        var routekleur = document.getElementById('RNkleur')
 
   
         // Text input element
-        document.getElementById('text').addEventListener('keyup', function() {
+        document.getElementById('userinput').addEventListener('keyup', function() {
          /*
             ---------------------------------------------------------
         i need the with and height of the displays to finish this code :-) 
             ---------------------------------------------------------
         */
-            var breedheid = ((tCtx.measureText(this.value).width)+(tCtx.measureText(routenummer.value).width));
+            /*--Render Image--*/
+            var breedheid = ((tCtx.measureText(this.value).width)+(tCtx.measureText(routenummer.value).width)+15);
+
             tCtx.canvas.width = breedheid;
 
         
 
-            var opzij = (tCtx.measureText(this.value).width*10);
+            var opzij = (15+(tCtx.measureText(maintext.value).width*10));
             
             tCtx.fillStyle = "#000000";
             tCtx.fillRect(0, 0, tCtx.canvas.width, tCtx.canvas.height);
 
-            tCtx.fillStyle = "#ff9933";
-
+            tCtx.fillStyle = mainkleur.value;
             tCtx.font = "80px dotnorm";             //max width 430  height 100
-            tCtx.fillText(this.value, 10, 60);
+            tCtx.fillText(maintext.value, 10, 60);
            
+
+            tCtx.fillStyle = bottomkleur.value;
             tCtx.font = "40px dotnorm";             //max width 430  height 40
             tCtx.fillText(bottomtext.value, 10, 120);
 
+            tCtx.fillStyle = routekleur.value;
             tCtx.font = "140px dotnorm";            //max width 160    height 160
             tCtx.fillText(routenummer.value, opzij, 110);
 
