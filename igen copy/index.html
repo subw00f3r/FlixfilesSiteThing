@@ -8,9 +8,10 @@
 </head>
 <body> 
     <link rel="stylesheet" href="index.css">
-    <div style="background-color: rgb(233, 93, 191)";>
-    <h1>THIS IS THE IGEN TEST ENVOIREMENT</h1>
-    <h3>⚠ HERE I TEST UPDATES BEFORE PUBLISHING THEM TO THE REAL IGEN!!           ⚠</h3>
+    <div style="background-color: rgb(255, 13, 235)";>
+    <h1>TESTING CENTRE</h1>
+    <h3>Only does main display for now, working on side and read disp.             ⚠</h3>
+    <h3>⚠ this thing should fit on the main display of scada's han0v3r             ⚠</h3>
     </div>
     <hr>
     <br>
@@ -75,8 +76,14 @@
             //    1 OP 6.22 IS DE ASPECT RATIO xxjes 
             //     breed= 870,8 & hoog 140
 
+            //CHARACTER WIDTH AT 10 PX is 1 SO 10:1
+
             var rnLen = tCtx.measureText(routenummer.value).width
             var terugnaarlinks = (870-(rnLen*14)-10);
+
+            
+            var rout = tCtx.measureText(routenummer.value).width
+            var weghier = ((rout*13)+10)
       
             //black background//
             tCtx.fillStyle = "#000000";
@@ -84,16 +91,14 @@
 
             //text//
             tCtx.fillStyle = mainkleur.value;       //ignore these lol, dont think they do anything.. kinda forgot lol
-            tCtx.font = "80px MONOled";             //max width 430  height 100
-            tCtx.fillText(maintext.value, 10, 60);
+            tCtx.font = "140px MONOled";             //max width 430  height 100
+            tCtx.fillText(maintext.value, weghier, 110);
             
-            tCtx.fillStyle = bottomkleur.value;
-            tCtx.font = "40px MONOled";             //max width 430  height 40
-            tCtx.fillText(bottomtext.value, 10, 120);
+           
 
             tCtx.fillStyle = routekleur.value;
             tCtx.font = "140px MONOled";            //max width 160    height 160
-            tCtx.fillText(routenummer.value, terugnaarlinks, 110);
+            tCtx.fillText(routenummer.value, 10, 110);
 
             //debug//
             var debugmain = document.getElementById('debugmain')
