@@ -71,19 +71,19 @@
         document.getElementById('userinput').addEventListener('keyup', function() {
     
             /*-- size canvas --*/       
-            tCtx.canvas.width = 870.8
+            tCtx.canvas.width = 1000
 
             //    1 OP 6.22 IS DE ASPECT RATIO xxjes 
             //     breed= 870,8 & hoog 140
 
             //CHARACTER WIDTH AT 10 PX is 1 SO 10:1
 
-            var rnLen = tCtx.measureText(routenummer.value).width
-            var terugnaarlinks = (870-(rnLen*14)-10);
+            var rnLen = tCtx.measureText(maintext.value).width
+            var terugnaarlinks = (1000-((rnLen*15)+50));
 
             
             var rout = tCtx.measureText(routenummer.value).width
-            var weghier = ((rout*13)+10)
+            var weghier = ((rout*14)+40)
       
             //black background//
             tCtx.fillStyle = "#000000";

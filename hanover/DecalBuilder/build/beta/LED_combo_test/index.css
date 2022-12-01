@@ -1,0 +1,34 @@
+@font-face {
+    font-family: dotnorm;
+    src: url(DOTMATRI.TTF);
+  }
+@font-face {
+  font-family: MONOled;
+  src: url(assets/repet.ttf);
+}
+
+
+
+uinput{
+    position: relative;
+
+}
+
+
+img{
+    padding: 1rem;
+    position: relative;
+    /*
+    background: linear-gradient(to bottom,#e40303,#e40303 16.67%,#ff8c00 16.67%,#ff8c00 33.33%,#ffed00 33.33%,#ffed00 50%,#008026 50%,#008026 66.67%,#004dff 66.67%,#004dff 83.33%,#750787 83.33%,#750787);
+    */
+    padding: 5px;
+  }
+
+
+#textCanvasMAIN{
+  display: none;
+}
+
+#textCanvasSIDE{
+    display: none;
+}
