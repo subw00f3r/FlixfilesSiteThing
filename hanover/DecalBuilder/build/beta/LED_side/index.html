@@ -8,12 +8,10 @@
 </head>
 <body> 
     <link rel="stylesheet" href="index.css">
-    <div style="background-color: orange";>
-    <h1>not so great image generator version 0.1.2</h1>
-    <h5>don't use on internet explorer, i dont feel like converting the fonts so it won't work.</h5>
-
-    <h3>⚠ I need the height and width of the displays to finish the code.....      ⚠</h3>
-    <h3>⚠ Untill I do that the text might look peepee, if so just add a few spaces ⚠</h3>
+    <div style="background-color: rgb(255, 13, 235)";>
+    <h1>TESTING CENTRE</h1>
+    <h3>Only does main display for now, working on side and read disp.             ⚠</h3>
+    <h3>⚠ this thing should fit on the main display of scada's han0v3r             ⚠</h3>
     </div>
     <hr>
     <br>
@@ -43,18 +41,22 @@
             <input type="text" id="routenummer">
         </uinput>
     </uinputMain>
-    <br>
-    <hr>
+
     <p>
-        Planned updates: color picker for background; fixed size + text scaling and idk maybe something else
+        Planned updates: color picker for background; fixed size + text scaling and making this page not look like i designed it in ms paint and idk maybe something else
     </p>
-    <hr>
     <p>
         Fix log:
         <p>Color selector is now availible</p>
         <p>image renderer should now work a bit better</p>
         <p>i think thats all i did for now</p>
     </p>
+    <hr>
+    <debug id='debugmain'>DEBUG for MAIN</debug> -
+    <debug id='debugsub'>DEBUG for SUB</debug> -
+    <debug id='debugnum'>DEBUG for NUM</debug>
+
+    <!-- Render MAIN display with sub -->
     <script>
         var tCtx = document.getElementById('textCanvas').getContext('2d'), //Hidden canvas
         imageElem = document.getElementById('image'); //Image element
@@ -65,46 +67,56 @@
         var bottomkleur = document.getElementById('BTkleur')
         var routekleur = document.getElementById('RNkleur')
 
-  
         // Text input element
         document.getElementById('userinput').addEventListener('keyup', function() {
-         /*
-            ---------------------------------------------------------
-        i need the with and height of the displays to finish this code :-) 
-            ---------------------------------------------------------
-        */
-            /*--Render Image--*/
-            var breedheid = ((tCtx.measureText(this.value).width)+(tCtx.measureText(routenummer.value).width)+15);
+    
+            /*-- size canvas --*/       
+            tCtx.canvas.width = 1000
 
-            tCtx.canvas.width = breedheid;
+            //    1 OP 6.22 IS DE ASPECT RATIO xxjes 
+            //     breed= 870,8 & hoog 140
 
-        
+            //CHARACTER WIDTH AT 10 PX is 1 SO 10:1
 
-            var opzij = (15+(tCtx.measureText(maintext.value).width*10));
+            var rnLen = tCtx.measureText(maintext.value).width
+            var terugnaarlinks = (1000-((rnLen*15)+50));
+
             
+            var rout = tCtx.measureText(routenummer.value).width
+            var weghier = ((rout*14)+40)
+      
+            //black background//
             tCtx.fillStyle = "#000000";
             tCtx.fillRect(0, 0, tCtx.canvas.width, tCtx.canvas.height);
 
-            tCtx.fillStyle = mainkleur.value;
-            tCtx.font = "80px dotnorm";             //max width 430  height 100
-            tCtx.fillText(maintext.value, 10, 60);
+            //text//
+            tCtx.fillStyle = mainkleur.value;       //ignore these lol, dont think they do anything.. kinda forgot lol
+            tCtx.font = "140px MONOled";             //max width 430  height 100
+            tCtx.fillText(maintext.value, weghier, 110);
+            
            
 
-            tCtx.fillStyle = bottomkleur.value;
-            tCtx.font = "40px dotnorm";             //max width 430  height 40
-            tCtx.fillText(bottomtext.value, 10, 120);
-
             tCtx.fillStyle = routekleur.value;
-            tCtx.font = "140px dotnorm";            //max width 160    height 160
-            tCtx.fillText(routenummer.value, opzij, 110);
+            tCtx.font = "140px MONOled";            //max width 160    height 160
+            tCtx.fillText(routenummer.value, 10, 110);
 
+            //debug//
+            var debugmain = document.getElementById('debugmain')
+            debugmain.textContent = text.value.length
 
+            var debugsub = document.getElementById('debugsub')
+            debugsub.textContent = bottomtext.value.length
 
+            var debugnum = document.getElementById('debugnum')
+            debugnum.textContent =  rnLen
 
-
+            //send data to client//
             imageElem.src = tCtx.canvas.toDataURL();
             console.log(imageElem.src);
         }, false);
     </script>
+
+    
+
 </body>
 </html>
