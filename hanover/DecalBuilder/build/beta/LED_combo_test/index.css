@@ -6,8 +6,55 @@
   font-family: MONOled;
   src: url(assets/repet.ttf);
 }
+@font-face {
+  font-family: typold_medium;
+  src: url(/files/font/typoldMED.otf);
+}
+@font-face {
+  font-family: LEDdisplay;
+  src: url(assets/ledDisplay.ttf);
+}
+.title{
+  font-family: typold_medium;
+  font-size: 30px;
+  margin-left: 30px;
+  font-weight: bold;
+}
+hr{
+  border: 0px;
+  border-top: 5px solid black;
+  border-radius: 10px;
+  fill: black;
+  
+}
+.info{
+  background-color: rgb(125, 125, 214);
+  width: fit-content;
+  color: white;
+  padding: 5px;
+  border-radius: 15px;
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
 
+.note{
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: sans-serif;   
+  width: 60%;
+}
 
+.noteimg{
+  height: 100px;
+  float: left;
+  border-radius: 15px;
+  margin-right: 20px;
+}
 
 uinput{
     position: relative;

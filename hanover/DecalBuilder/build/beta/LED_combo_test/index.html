@@ -8,21 +8,26 @@
 </head>
 <body> 
     <link rel="stylesheet" href="index.css">
-    <div style="background-color: rgb(255, 13, 235)";>
-    <h1>TESTING CENTRE</h1>
-    <h3>Only does main display for now, working on side and read disp.             ⚠</h3>
-    <h3>⚠ this thing should fit on the main display of scada's han0v3r             ⚠</h3>
+    <div>
+        <p class="title">TESTING CENTRE</p>
+        <div class="note">
+            <img class="noteimg" src="/files/images/wip.jpg">
+            <p>Only does main display for now, working on side and read disp.             ⚠</p>
+            <p>⚠ this thing should fit on the main display of scada's han0v3r             ⚠</p>
+        </div>
     </div>
     <hr>
     <br>
+    <div class="info">
+        <p>Your image will render here, right click to save.</p>
+    </div>
     <canvas id='textCanvasMAIN' height=140px></canvas>
-    <img id='imageMAIN'>Image will render here. Right click to save.</img>
+    <img id='imageMAIN'></img>
     <br>
     <canvas id='textCanvasSIDE' height=140px></canvas>
-    <img id='imageSIDE'>Image will render here. Right click to save.</img>
+    <img id='imageSIDE'></img>
 
     <hr>
-
     <br>
 
     <uinputMain id="userinput">
@@ -46,7 +51,7 @@
     </uinputMain>
 
     <p>
-        Planned updates: color picker for background; fixed size + text scaling and making this page not look like i designed it in ms paint and idk maybe something else
+        Planned updates: Fixing the side display
     </p>
     <p>
         Fix log:
