@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HANOVER-beta build</title>
+    <link rel="icon" type="image/x-icon" href="assets/icon.ico">
+</head>
+
+<body> 
+    <link rel="stylesheet" href="index.css">
+    <script src="imagegen.js"></script>
+
+    <p class="title">TESTING CENTRE</p>
+
+    <div class="note">
+        <img class="noteimg" src="/files/images/wip.jpg">
+        <p>⚠ Currently in BETA, don't expect it to work perfectly. ⚠</p>
+        <p>Designed to work with <sca>SCADA</sca> Hanover</p>
+    </div>
+    
+    <hr>
+    <br>
+
+    <div class="info">
+        <p>NOTE: WIP! Expect bugs...</p>
+    </div>
+
+    <div class="output">
+        <p id="waittext" class="waittext">Start typing to generate an image! Right click to save.</p>
+            <canvas id='textCanvasMAIN' height=140px></canvas>
+            <img id='imageMAIN'></img>
+        <br>
+            <canvas id='textCanvasSIDE' height=140px></canvas>
+            <img id='imageSIDE'></img>
+        <br>
+            <canvas id='textCanvasREAR' height=140px></canvas>
+            <img id='imageREAR'></img>
+    </div>
+
+    <hr>
+    <br>
+
+    <div id="userinput" class="userinput">
+        <uinput>
+            <p>Main Text</p>
+            <input type="color" id="MTkleur" value="#FF9933">
+            <input type="text" id="text">
+        </uinput>
+
+        <uinput>
+            <p>Bottom Text🍑</p>
+            <input type="color" id="BTkleur" value="#FF9933">
+            <input type="text" id="bottomtext">
+        </uinput>
+
+        <uinput>
+            <p>Route Number (use numbers only for best result)</p>
+            <input type="color" id="RNkleur" value="#FF9933">
+            <input type="text" id="routenummer">
+        </uinput>
+    </div>
+
+    <br>
+    <hr>
+    
+    <div class="planned_updates">
+        <p style="font-weight: bold;">Planned updates:</p>
+        <p>Fix side display</p>
+        <p>Add rear display</p>
+        <p>More optimization</p>
+    </div>
+    <br>
+    <div>
+        <p style="font-weight: bold;">Fix log:</p>
+        <p>Color selector fixed</p>
+        <p>Image rendering performance fixes</p>
+        <p>Styling problems resolved</p>
+        <p>Optimization</p>
+    </div>
+   
+    <hr>
+    
+    <div class="debug">
+        <debug id='Mdebugmain'>DEBUG1 (ignore me)</debug> -
+        <debug id='Mdebugsub'></debug> - (
+        <debug id='Mdebugnum'></debug> : 
+        <debug id='MdebugnumL'></debug> )
+            <br>
+        <debug id='Sdebugmain'>DEBUG2 (ignore me)</debug> -
+        <debug id='Sdebugnum'></debug> : 
+        <debug id='SdebugnumL'></debug>
+            <br>
+        <debug id='Rdebugnum'>DEBUG3 (ignore me)</debug>
+        <debug id='RdebugnumL'></debug>
+    </div>
+
+</body>
+</html>

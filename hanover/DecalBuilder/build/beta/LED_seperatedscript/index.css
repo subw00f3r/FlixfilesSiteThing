@@ -1,0 +1,110 @@
+@import url(/files/style/nord.css);
+@font-face {
+    font-family: dotnorm;
+    src: url(DOTMATRI.TTF);
+  }
+@font-face {
+  font-family: MONOled;
+  src: url(assets/repet.ttf);
+}
+@font-face {
+  font-family: typold_medium;
+  src: url(/files/font/typoldMED.otf);
+}
+@font-face {
+  font-family: LEDdisplay;
+  src: url(assets/ledDisplay.ttf);
+}
+
+.title{
+  font-family: typold_medium;
+  font-size: 30px;
+  margin-left: 30px;
+  font-weight: bold;
+}
+body{
+  background-color: var(--nord0);
+  color: var(--nord8);
+  font-family: sans-serif;
+}
+hr{
+  border: 0px;
+  border-top: 5px solid var(--nord4);
+  border-radius: 10px;  
+}
+sca{
+  font-family: typold_medium;
+}
+.debug{
+  color: var(--nord12);
+}
+.info{
+  background-color: var(--nord12);
+  width: fit-content;
+  color: white;
+  padding: 5px;
+  border-radius: 15px;
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+.waittext{
+  font-weight: bold;
+  font-family: sans-serif;
+}
+.note{
+  background-color: var(--nord7);
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: sans-serif;   
+  width: 60%;
+}
+
+.noteimg{
+  height: 100px;
+  float: left;
+  border-radius: 15px;
+  margin-right: 20px;
+}
+
+.userinput{
+  position: relative;
+  color: var(--nord4);
+  background-color: var(--nord2);
+  padding: 10px;
+  width: fit-content;
+  border-radius: 15px;
+}
+.output{
+  position: relative;
+  color: var(--nord4);
+  background-color: var(--nord2);
+  padding: 10px;
+  width: fit-content;
+  border-radius: 15px;
+}
+
+img{
+    padding: 1rem;
+    position: relative;
+    /*
+    background: linear-gradient(to bottom,#e40303,#e40303 16.67%,#ff8c00 16.67%,#ff8c00 33.33%,#ffed00 33.33%,#ffed00 50%,#008026 50%,#008026 66.67%,#004dff 66.67%,#004dff 83.33%,#750787 83.33%,#750787);
+    */
+    padding: 5px;
+  }
+
+
+#textCanvasMAIN{
+  display: none;
+}
+
+#textCanvasSIDE{
+    display: none;
+}
+
+#textCanvasREAR{
+  display: none;
+}
