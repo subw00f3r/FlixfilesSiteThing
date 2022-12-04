@@ -45,13 +45,14 @@ hr{
   border-radius: 5px;
 }
 .textselector{
+  background-color: var(--nord4);
   height: 25px;
   border: none;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  box-shadow: inset 1px 1px 3px #ccc;
+  box-shadow: inset 1px 1px 3px var(--nord0);
   border-radius: 5px;
 }
 sca{
@@ -100,6 +101,7 @@ sca{
   width: fit-content;
   border-radius: 15px;
 }
+
 .output{
   position: relative;
   color: var(--nord4);

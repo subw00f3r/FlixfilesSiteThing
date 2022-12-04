@@ -1,3 +1,5 @@
+//Copyright © FeliX#7578(discord) - December 2022
+
 //makes code work no deletey plz
 document.addEventListener("DOMContentLoaded", domloaded, false);
 function domloaded() {
