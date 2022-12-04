@@ -1,3 +1,4 @@
+@import url(/files/style/nord.css);
 @font-face {
     font-family: dotnorm;
     src: url(DOTMATRI.TTF);
@@ -14,21 +15,31 @@
   font-family: LEDdisplay;
   src: url(assets/ledDisplay.ttf);
 }
+
 .title{
   font-family: typold_medium;
   font-size: 30px;
   margin-left: 30px;
   font-weight: bold;
 }
+body{
+  background-color: var(--nord0);
+  color: var(--nord8);
+  font-family: sans-serif;
+}
 hr{
   border: 0px;
-  border-top: 5px solid black;
-  border-radius: 10px;
-  fill: black;
-  
+  border-top: 5px solid var(--nord4);
+  border-radius: 10px;  
+}
+sca{
+  font-family: typold_medium;
+}
+.debug{
+  color: var(--nord12);
 }
 .info{
-  background-color: rgb(125, 125, 214);
+  background-color: var(--nord12);
   width: fit-content;
   color: white;
   padding: 5px;
@@ -37,9 +48,12 @@ hr{
   font-family: sans-serif;
   font-weight: bold;
 }
-
+.waittext{
+  font-weight: bold;
+  font-family: sans-serif;
+}
 .note{
-  background-color: red;
+  background-color: var(--nord7);
   color: white;
   padding: 10px;
   border-radius: 15px;
@@ -56,11 +70,22 @@ hr{
   margin-right: 20px;
 }
 
-uinput{
-    position: relative;
-
+.userinput{
+  position: relative;
+  color: var(--nord4);
+  background-color: var(--nord2);
+  padding: 10px;
+  width: fit-content;
+  border-radius: 15px;
 }
-
+.output{
+  position: relative;
+  color: var(--nord4);
+  background-color: var(--nord2);
+  padding: 10px;
+  width: fit-content;
+  border-radius: 15px;
+}
 
 img{
     padding: 1rem;

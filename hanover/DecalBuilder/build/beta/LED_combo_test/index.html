@@ -8,29 +8,38 @@
 </head>
 <body> 
     <link rel="stylesheet" href="index.css">
-    <div>
-        <p class="title">TESTING CENTRE</p>
-        <div class="note">
-            <img class="noteimg" src="/files/images/wip.jpg">
-            <p>Only does main display for now, working on side and read disp.             ⚠</p>
-            <p>⚠ this thing should fit on the main display of scada's han0v3r             ⚠</p>
-        </div>
+
+    <p class="title">TESTING CENTRE</p>
+
+    <div class="note">
+        <img class="noteimg" src="/files/images/wip.jpg">
+        <p>⚠ Curently in BETA, dont expect it to work perfectly. ⚠</p>
+        <p>Designed to work with <sca>SCADA</sca> Hanover</p>
     </div>
+    
     <hr>
     <br>
+
     <div class="info">
-        <p>Your image will render here, right click to save.</p>
+        <p>NOTE: WIP! Expect bugs...</p>
     </div>
-    <canvas id='textCanvasMAIN' height=140px></canvas>
-    <img id='imageMAIN'></img>
-    <br>
-    <canvas id='textCanvasSIDE' height=140px></canvas>
-    <img id='imageSIDE'></img>
+
+    <div class="output">
+        <p id="waittext" class="waittext">Start typing to generate an image! Right click to save.</p>
+            <canvas id='textCanvasMAIN' height=140px></canvas>
+            <img id='imageMAIN'></img>
+        <br>
+            <canvas id='textCanvasSIDE' height=140px></canvas>
+            <img id='imageSIDE'></img>
+        <br>
+            <canvas id='textCanvasREAR' height=140px></canvas>
+            <img id='imageREAR'></img>
+    </div>
 
     <hr>
     <br>
 
-    <uinputMain id="userinput">
+    <div id="userinput" class="userinput">
         <uinput>
             <p>Main Text</p>
             <input type="color" id="MTkleur" value="#FF9933">
@@ -44,26 +53,44 @@
         </uinput>
 
         <uinput>
-            <p>route number</p>
+            <p>Route Number (use numbers only for best result)</p>
             <input type="color" id="RNkleur" value="#FF9933">
             <input type="text" id="routenummer">
         </uinput>
-    </uinputMain>
+    </div>
 
-    <p>
-        Planned updates: Fixing the side display
-    </p>
-    <p>
-        Fix log:
-        <p>Color selector is now availible</p>
-        <p>image renderer should now work a bit better</p>
-        <p>i think thats all i did for now</p>
-    </p>
+    <br>
     <hr>
-    <debug id='debugmain'>DEBUG for MAIN</debug> -
-    <debug id='debugsub'>DEBUG for SUB</debug> -
-    <debug id='debugnum'>DEBUG for NUM</debug>
-
+    
+    <div class="planned_updates">
+        <p style="font-weight: bold;">Planned updates:</p>
+        <p>Fix side display</p>
+        <p>Add rear display</p>
+        <p>Optimizations</p>
+    </div>
+    <br>
+    <div>
+        <p style="font-weight: bold;">Fix log:</p>
+        <p>Color selector fixed</p>
+        <p>Image rendering performance fixes</p>
+        <p>Styling problems resolved</p>
+    </div>
+   
+    <hr>
+    
+    <div class="debug">
+        <debug id='Mdebugmain'>DEBUG1 (ignore me)</debug> -
+        <debug id='Mdebugsub'></debug> - (
+        <debug id='Mdebugnum'></debug> : 
+        <debug id='MdebugnumL'></debug> )
+            <br>
+        <debug id='Sdebugmain'>DEBUG2 (ignore me)</debug> -
+        <debug id='Sdebugnum'></debug> : 
+        <debug id='SdebugnumL'></debug>
+            <br>
+        <debug id='Rdebugnum'>DEBUG3 (ignore me)</debug> : 
+        <debug id='RdebugnumL'></debug>
+    </div>
 
     <!-- Render the MAIN display -->
     <script>
@@ -85,7 +112,10 @@
             //    1 OP 6.22 IS DE ASPECT RATIO xxjes 
             //     breed= 870,8 & hoog 140
 
-            //CHARACTER WIDTH AT 10 PX is 1 SO 10:1
+            //CHARACTER (numbers) WIDTH AT 10 PX is 1 SO 10:1
+            
+            //width helper
+             var widthhelp = tCtxMAIN.canvas.width
 
             var rnLen = tCtxMAIN.measureText(routenummer.value).width
             var terugnaarlinks = (870-(rnLen*14)-10);
@@ -105,37 +135,38 @@
 
             tCtxMAIN.fillStyle = routekleur.value;
             tCtxMAIN.font = "140px MONOled";            //max width 160    height 160
-            tCtxMAIN.fillText(routenummer.value, terugnaarlinks, 110);
+            tCtxMAIN.textAlign ="end";
+            tCtxMAIN.fillText(routenummer.value, widthhelp, 110);
 
             //debug//
-            var debugmain = document.getElementById('debugmain')
-            debugmain.textContent = text.value.length
+            var Mdebugmain = document.getElementById('Mdebugmain')
+            Mdebugmain.textContent = text.value.length
 
-            var debugsub = document.getElementById('debugsub')
-            debugsub.textContent = bottomtext.value.length
+            var Mdebugsub = document.getElementById('Mdebugsub')
+            Mdebugsub.textContent = bottomtext.value.length
 
-            var debugnum = document.getElementById('debugnum')
-            debugnum.textContent =  rnLen
+            var Mdebugnum = document.getElementById('Mdebugnum')
+            var MdebugnumL = document.getElementById('MdebugnumL')
+            Mdebugnum.textContent =  routenummer.value.length
+            MdebugnumL.textContent = rnLen
 
+            //remove waitText
+            var statictext = document.getElementById('waittext')
+            waittext.textContent = ""
             //send data to client//
             imageElemMAIN.src = tCtxMAIN.canvas.toDataURL();
             console.log(imageElemMAIN.src);
         }, false);
     </script>
-
-
-
-
+    <!-- END -->
 
     <!-- Render the SIDE display -->
     <script>
         var tCtxSIDE = document.getElementById('textCanvasSIDE').getContext('2d'), //Hidden canvas
         imageElemSIDE = document.getElementById('imageSIDE'); //Image element
         var maintext = document.getElementById('text');
-        var bottomtext = document.getElementById('bottomtext');
         var routenummer = document.getElementById('routenummer');
         var mainkleur = document.getElementById('MTkleur');
-        var bottomkleur = document.getElementById('BTkleur')
         var routekleur = document.getElementById('RNkleur')
 
         // Text input element
@@ -147,7 +178,11 @@
             //    1 OP 6.22 IS DE ASPECT RATIO xxjes 
             //     breed= 870,8 & hoog 140
 
-            //CHARACTER WIDTH AT 10 PX is 1 SO 10:1
+            //CHARACTER (numbers) WIDTH AT 10 PX is 1 SO 10:1
+
+            //width helper
+            var widthhelp = tCtxSIDE.canvas.width
+
 
             var rnLen = tCtxSIDE.measureText(routenummer.value).width
             var terugnaarlinks = (1000-(rnLen*14)-10);
@@ -163,31 +198,78 @@
             //text//
             tCtxSIDE.fillStyle = mainkleur.value;       //ignore these lol, dont think they do anything.. kinda forgot lol
             tCtxSIDE.font = "140px MONOled";             //max width 430  height 100
-            tCtxSIDE.fillText(maintext.value, weghier, 110);
+            tCtxSIDE.textAlign = 'end';
+            tCtxSIDE.fillText(maintext.value, widthhelp, 110);
             
            
 
             tCtxSIDE.fillStyle = routekleur.value;
             tCtxSIDE.font = "140px MONOled";            //max width 160    height 160
+            tCtxSIDE.textAlign = "start";
             tCtxSIDE.fillText(routenummer.value, 10, 110);
 
             //debug//
-            var debugmain = document.getElementById('debugmain')
-            debugmain.textContent = text.value.length
+            
+            var Sdebugmain = document.getElementById('Sdebugmain');
+            Sdebugmain.textContent = text.value.length;
 
-            var debugsub = document.getElementById('debugsub')
-            debugsub.textContent = bottomtext.value.length
 
-            var debugnum = document.getElementById('debugnum')
-            debugnum.textContent =  rnLen
+            var Sdebugnum = document.getElementById('Sdebugnum');
+            Sdebugnum.textContent =  routenummer.value.length;
+            SdebugnumL.textContent = rnLen;
 
             //send data to client//
             imageElemSIDE.src = tCtxSIDE.canvas.toDataURL();
             console.log(imageElemSIDE.src);
         }, false);
     </script>
+    <!-- END -->
 
+
+    <!-- Render the REAR display -->
+    <script>
+        var tCtxREAR = document.getElementById('textCanvasREAR').getContext('2d'), //Hidden canvas
+        imageElemREAR = document.getElementById('imageREAR'); //Image element
     
+        var routenummer = document.getElementById('routenummer');  
+        var routekleur = document.getElementById('RNkleur')
+
+        // Text input element
+        document.getElementById('userinput').addEventListener('keyup', function() {
+    
+            /*-- size canvas --*/       
+            tCtxREAR.canvas.width = 260
+            
+            //center align helpr
+            var center = (tCtxREAR.canvas.width/2)
+
+            //    1 OP 6.22 IS DE ASPECT RATIO xxjes 
+            //     breed= 870,8 & hoog 140
+
+            //CHARACTER (numbers) WIDTH AT 10 PX is 1 SO 10:1
+      
+            //black background//
+            tCtxREAR.fillStyle = "#000000";
+            tCtxREAR.fillRect(0, 0, tCtxREAR.canvas.width, tCtxREAR.canvas.height);
+
+            //text//
+            tCtxREAR.fillStyle = routekleur.value;
+            tCtxREAR.textAlign = 'center';
+            tCtxREAR.font = "140px MONOled";            //max width 160    height 160
+            tCtxREAR.fillText(routenummer.value, center, 110);
+
+            //debug//
+            var Sdebugnum = document.getElementById('Sdebugnum');
+            Rdebugnum.textContent =  routenummer.value.length;
+            RdebugnumL.textContent = rnLen;
+
+            //send data to client//
+            imageElemREAR.src = tCtxREAR.canvas.toDataURL();
+            console.log(imageElemREAR.src);
+        }, false);
+    </script>
+    <!-- END -->
+ 
 
 </body>
 </html>
