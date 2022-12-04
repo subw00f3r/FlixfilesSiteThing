@@ -1,7 +1,6 @@
 //makes code work no deletey plz
 document.addEventListener("DOMContentLoaded", domloaded, false);
 function domloaded() {
-
   
   //Render MAIN display
   var tCtxMAIN = document.getElementById("textCanvasMAIN").getContext("2d"), //Hidden canvas
@@ -107,9 +106,9 @@ function domloaded() {
 
       //text//
       tCtxSIDE.fillStyle = mainkleur.value; //ignore these lol, dont think they do anything.. kinda forgot lol
-      tCtxSIDE.font = "140px MONOled"; //max width 430  height 100
+      tCtxSIDE.font = "100px MONOled"; //max width 430  height 100
       tCtxSIDE.textAlign = "end";
-      tCtxSIDE.fillText(maintext.value, widthhelp, 110);
+      tCtxSIDE.fillText(maintext.value, widthhelp, 100);
 
       tCtxSIDE.fillStyle = routekleur.value;
       tCtxSIDE.font = "140px MONOled"; //max width 160    height 160
