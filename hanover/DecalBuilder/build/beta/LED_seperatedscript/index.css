@@ -8,13 +8,15 @@
   src: url(assets/repet.ttf);
 }
 @font-face {
-  font-family: typold_medium;
-  src: url(/files/font/typoldMED.otf);
-}
-@font-face {
   font-family: LEDdisplay;
   src: url(assets/ledDisplay.ttf);
 }
+
+@font-face {
+  font-family: typold_medium;
+  src: url(/files/font/typoldMED.otf);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -35,6 +37,7 @@ hr{
   border-radius: 10px;  
 }
 .colorselector{
+  background-color: var(--nord5);
   height: 25px;
   border: 0;
   text-align: center;
@@ -45,7 +48,7 @@ hr{
   border-radius: 5px;
 }
 .textselector{
-  background-color: var(--nord4);
+  background-color: var(--nord5);
   height: 25px;
   border: none;
   text-align: center;
