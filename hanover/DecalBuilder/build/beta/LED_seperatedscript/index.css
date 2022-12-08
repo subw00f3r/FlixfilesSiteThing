@@ -17,6 +17,16 @@
   src: url(/files/font/typoldMED.otf);
 }
 
+/* unvisited link */
+a:link {
+  color: var(--nord6);
+}
+
+/* visited link */
+a:visited {
+  color: var(--nord8);
+}
+
 html {
   scroll-behavior: smooth;
 }
